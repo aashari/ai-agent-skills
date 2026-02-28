@@ -4,6 +4,10 @@ description: Find and list all active subscriptions and recurring charges from e
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Subscriptions — Recurring Charge Audit

@@ -4,6 +4,10 @@ description: Intelligent inbox triage — surface the most important emails acro
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Triage — Smart Priority Overview

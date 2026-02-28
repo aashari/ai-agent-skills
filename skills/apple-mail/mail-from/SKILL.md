@@ -4,6 +4,10 @@ description: Show all emails from a specific person, email address, or domain. S
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail From — All Emails From a Sender

@@ -4,6 +4,10 @@ description: Extract financial transactions, expenses, receipts, payments, and i
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Expenses — Financial Transaction Summary

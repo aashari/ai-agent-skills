@@ -4,6 +4,10 @@ description: Find emails with attachments across all accounts, searchable by fil
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3]
 ---
 
 # Mail Attachments — Find Emails with Files

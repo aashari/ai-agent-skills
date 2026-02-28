@@ -4,6 +4,10 @@ description: List all Apple Mail synced accounts with email addresses, message c
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3]
 ---
 
 # Mail Accounts — Discover All Synced Accounts

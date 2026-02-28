@@ -4,6 +4,10 @@ description: Show who sends the most email, communication frequency analysis, an
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3]
 ---
 
 # Mail Top Senders — Communication Frequency Analysis

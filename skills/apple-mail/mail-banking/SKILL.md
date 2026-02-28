@@ -4,6 +4,10 @@ description: Show bank notifications, transaction alerts, and account activity f
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Banking — Bank Notifications and Account Activity

@@ -4,6 +4,10 @@ description: Find emails that are waiting for a reply — unread messages from r
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Needs Reply — Unanswered Emails

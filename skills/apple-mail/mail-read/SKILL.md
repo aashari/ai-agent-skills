@@ -4,6 +4,10 @@ description: Read the full content of a specific email by ROWID, subject search,
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Read — Read a Specific Email

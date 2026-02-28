@@ -4,6 +4,10 @@ description: Identify newsletters and mailing lists in email, show volume per se
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Newsletter — Subscription and Mailing List Audit

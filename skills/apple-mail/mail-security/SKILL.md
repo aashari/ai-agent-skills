@@ -4,6 +4,10 @@ description: Find security-related emails — login alerts, 2FA changes, passwor
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Security — Account Security Events

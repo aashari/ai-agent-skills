@@ -4,6 +4,10 @@ description: Read and summarize a complete email thread or conversation. Show al
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Thread — Read a Full Email Conversation

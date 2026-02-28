@@ -4,6 +4,10 @@ description: Find flight bookings, hotel reservations, travel itineraries, and b
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Travel — Bookings, Flights, and Itineraries

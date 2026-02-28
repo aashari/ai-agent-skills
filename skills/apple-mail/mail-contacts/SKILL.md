@@ -4,6 +4,10 @@ description: Extract contacts and build a communication directory from email his
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3]
 ---
 
 # Mail Contacts — Email Directory from Communication History

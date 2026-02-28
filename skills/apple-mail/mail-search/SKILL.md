@@ -4,6 +4,10 @@ description: Search Apple Mail across all synced accounts by keyword, subject, s
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Search — Full-Text Search Across All Accounts

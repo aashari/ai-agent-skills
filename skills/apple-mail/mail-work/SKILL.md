@@ -4,6 +4,10 @@ description: Show work emails only, filtered to Exchange/EWS accounts and corpor
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Work — Work Email Digest

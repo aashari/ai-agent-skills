@@ -41,22 +41,39 @@ Restart Claude Code. Skills are loaded automatically — no further configuratio
 
 ### OpenClaw
 
-Drop the skill directories into OpenClaw's skills folder (check your OpenClaw config for the exact path, typically `~/.openclaw/skills/` or `~/.config/openclaw/skills/`):
+Skills load from the `skills/` directory inside whichever agent workspace you want to use. Symlink for easy updates:
 
 ```bash
-cp -r skills/apple-mail/mail-* ~/.openclaw/skills/
-cp -r skills/apple-mail/_mail-shared ~/.openclaw/skills/
+REPO="/path/to/ai-agent-skills"
+WORKSPACE="$HOME/.openclaw/workspace"   # or your agent's workspace dir
+
+mkdir -p "$WORKSPACE/skills"
+for d in "$REPO/skills/apple-mail"/mail-*; do
+  ln -sf "$d" "$WORKSPACE/skills/$(basename $d)"
+done
 ```
 
-Reload OpenClaw skills. The skills use standard `SKILL.md` format — no additional frontmatter is required for basic usage. If OpenClaw requires dependency declarations, add `metadata.openclaw.requires.bins: [python3, sqlite3]` to each skill's frontmatter.
+Then create a `mail-core` override in that workspace to tell the agent where Apple Mail lives and how to access it (direct SQLite if the agent runs on the Mac, or SSH if remote). See `mail-core/SKILL.md` for the schema reference to include in your override.
 
-**Note:** All skills reference the parser as `~/.claude/skills/_mail-shared/parser.py`. For non-Claude-Code platforms, either place `_mail-shared/` at that path, or update the parser path in each skill to match your install location.
+OpenClaw discovers workspace-level skills automatically on the next conversation — no restart needed.
+
+**Parser path:** All skills reference the parser as `~/.claude/skills/_mail-shared/parser.py`. Place `_mail-shared/` at that path on the machine where skills execute, or update all references with:
+
+```bash
+find skills/apple-mail -name 'SKILL.md' \
+  -exec sed -i 's|~/.claude/skills/_mail-shared|YOUR_PATH/_mail-shared|g' {} +
+```
 
 ### Any Other Platform
 
 Skills follow the standard `SKILL.md` convention: a directory named after the skill, containing a `SKILL.md` with YAML frontmatter and natural language instructions. Install by copying to your platform's skills directory.
 
-The `_mail-shared/parser.py` utility must be accessible from the skill execution context. All skills reference it as `~/.claude/skills/_mail-shared/parser.py` — either install there, or update the path in each skill to match your setup.
+The `_mail-shared/parser.py` utility must be accessible from wherever skills execute. All skills reference it as `~/.claude/skills/_mail-shared/parser.py` — either place it there, or bulk-update the path:
+
+```bash
+find skills/apple-mail -name 'SKILL.md' \
+  -exec sed -i 's|~/.claude/skills/_mail-shared|YOUR_PATH/_mail-shared|g' {} +
+```
 
 ---
 

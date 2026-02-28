@@ -4,6 +4,10 @@ description: Email volume statistics, trends, and patterns. Show daily/weekly/mo
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3]
 ---
 
 # Mail Stats — Email Analytics

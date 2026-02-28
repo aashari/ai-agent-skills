@@ -4,6 +4,10 @@ description: Find meeting invites, calendar events, and meeting-related emails (
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Meetings — Calendar Invites and Meeting Emails

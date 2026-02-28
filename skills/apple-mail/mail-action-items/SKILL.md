@@ -4,6 +4,10 @@ description: Extract action items, tasks, and to-dos from recent emails. Scan em
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Action Items — Extract Tasks from Email

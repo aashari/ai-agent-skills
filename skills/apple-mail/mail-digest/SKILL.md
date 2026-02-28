@@ -4,6 +4,10 @@ description: Email digest for any time period — today, yesterday, last N hours
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
+metadata:
+  openclaw:
+    requires:
+      bins: [sqlite3, python3]
 ---
 
 # Mail Digest — Email Summary for Any Time Period
