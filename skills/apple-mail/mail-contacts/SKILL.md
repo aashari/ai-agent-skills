@@ -44,11 +44,8 @@ JOIN addresses a ON m.sender = a.ROWID
 JOIN mailboxes mb ON m.mailbox = mb.ROWID
 WHERE m.deleted = 0
   AND mb.url NOT LIKE '%Spam%' AND mb.url NOT LIKE '%Sent%'
-  AND a.address NOT LIKE '%noreply%'
-  AND a.address NOT LIKE '%no-reply%'
-  AND a.address NOT LIKE '%notifications%'
-  AND a.address NOT LIKE '%newsletter%'
-  AND a.address NOT LIKE '%alerts@%'
+  AND m.automated_conversation = 0
+  AND m.unsubscribe_type = 0
 GROUP BY a.address
 ORDER BY emails_received DESC LIMIT 50;" 2>/dev/null
 ```
@@ -75,7 +72,8 @@ JOIN addresses a ON m.sender = a.ROWID
 JOIN mailboxes mb ON m.mailbox = mb.ROWID
 WHERE m.date_received >= ${SINCE} AND m.deleted=0
   AND mb.url NOT LIKE '%Spam%'
-  AND a.address NOT LIKE '%noreply%' AND a.address NOT LIKE '%no-reply%'
+  AND m.automated_conversation = 0
+  AND m.unsubscribe_type = 0
 GROUP BY a.address ORDER BY last_seen DESC LIMIT 30;" 2>/dev/null
 ```
 

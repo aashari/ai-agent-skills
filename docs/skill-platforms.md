@@ -34,7 +34,7 @@ model: sonnet               # Model override
 **Platform:** Open-source local AI agent (gateway + messaging interface)
 **Install location:** Via `claw install <skill>` from ClawHub, or manual directory drop
 **Invocation:** Via chat message to the agent, or auto-invoked based on relevance
-**Marketplace:** [ClawHub](https://github.com/openclaw/clawhub) — 2,800+ community skills
+**Marketplace:** [ClawHub](https://github.com/openclaw/clawhub) — 3,200+ community skills
 
 ### Frontmatter Fields
 

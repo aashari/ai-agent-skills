@@ -34,10 +34,13 @@ LIMIT 50;" 2>/dev/null
 ```
 
 ## Step 2: Separate humans from automated senders
-Automated signals: address contains `noreply`, `no-reply`, `notifications@`, `alerts@`, `mailer@`, `bounce`, `system@`, `info@`, `support@`, `newsletter`, `donotreply`, `postmaster`; or name is empty; or sends at very regular intervals
+Use `automated_conversation` and `unsubscribe_type` columns (more reliable than address-pattern matching):
+- `automated_conversation = 0` + `unsubscribe_type = 0` → real humans
+- `automated_conversation = 1` → transactional (Jira, Slack, alerts)
+- `automated_conversation = 2` OR `unsubscribe_type > 0` → bulk/newsletters (noise)
 
 ```bash
-# Human senders only
+# Human senders only (automated_conversation = 0, no unsubscribe header)
 sqlite3 "$DB" "
 SELECT a.address, a.comment as name, COUNT(*) as cnt
 FROM messages m
@@ -46,13 +49,8 @@ JOIN mailboxes mb ON m.mailbox = mb.ROWID
 WHERE m.date_received >= ${SINCE}
   AND m.deleted = 0
   AND mb.url NOT LIKE '%Spam%' AND mb.url NOT LIKE '%Sent%'
-  AND a.address NOT LIKE '%noreply%'
-  AND a.address NOT LIKE '%no-reply%'
-  AND a.address NOT LIKE '%notifications%'
-  AND a.address NOT LIKE '%newsletter%'
-  AND a.address NOT LIKE '%alerts@%'
-  AND a.address NOT LIKE '%donotreply%'
-  AND a.address NOT LIKE '%mailer%'
+  AND m.automated_conversation = 0
+  AND m.unsubscribe_type = 0
 GROUP BY a.address ORDER BY cnt DESC LIMIT 20;" 2>/dev/null
 ```
 
