@@ -25,7 +25,7 @@ See [docs/skill-platforms.md](docs/skill-platforms.md) for a comparison of how e
 skills/
 └── apple-mail/         # Apple Mail skill set (22 skills)
     ├── README.md       # Setup guide for all platforms
-    ├── _shared/        # Shared utilities (parser.py)
+    ├── _mail-shared/   # Shared utilities (parser.py)
     ├── mail-core/      # Background technical reference (auto-loaded)
     ├── mail-digest/    # Email digest for any time period
     ├── mail-triage/    # Intelligent inbox triage

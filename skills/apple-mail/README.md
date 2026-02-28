@@ -24,13 +24,13 @@ Copy the skill directories into Claude Code's personal skills folder:
 
 ```bash
 cp -r skills/apple-mail/mail-* ~/.claude/skills/
-cp -r skills/apple-mail/_shared ~/.claude/skills/
+cp -r skills/apple-mail/_mail-shared ~/.claude/skills/
 ```
 
 Or symlink if you want to stay in sync with this repo:
 
 ```bash
-for d in skills/apple-mail/mail-* skills/apple-mail/_shared; do
+for d in skills/apple-mail/mail-* skills/apple-mail/_mail-shared; do
   ln -sf "$(pwd)/$d" ~/.claude/skills/$(basename $d)
 done
 ```
@@ -45,16 +45,18 @@ Drop the skill directories into OpenClaw's skills folder (check your OpenClaw co
 
 ```bash
 cp -r skills/apple-mail/mail-* ~/.openclaw/skills/
-cp -r skills/apple-mail/_shared ~/.openclaw/skills/
+cp -r skills/apple-mail/_mail-shared ~/.openclaw/skills/
 ```
 
 Reload OpenClaw skills. The skills use standard `SKILL.md` format — no additional frontmatter is required for basic usage. If OpenClaw requires dependency declarations, add `metadata.openclaw.requires.bins: [python3, sqlite3]` to each skill's frontmatter.
+
+**Note:** All skills reference the parser as `~/.claude/skills/_mail-shared/parser.py`. For non-Claude-Code platforms, either place `_mail-shared/` at that path, or update the parser path in each skill to match your install location.
 
 ### Any Other Platform
 
 Skills follow the standard `SKILL.md` convention: a directory named after the skill, containing a `SKILL.md` with YAML frontmatter and natural language instructions. Install by copying to your platform's skills directory.
 
-The `_shared/parser.py` utility must be accessible from the skill execution context. Either place it in a shared location your platform recognizes, or copy `parser.py` inline into skills that use it.
+The `_mail-shared/parser.py` utility must be accessible from the skill execution context. All skills reference it as `~/.claude/skills/_mail-shared/parser.py` — either install there, or update the path in each skill to match your setup.
 
 ---
 
