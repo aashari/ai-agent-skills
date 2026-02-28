@@ -67,7 +67,7 @@ metadata:
 | **Focus** | Developer workflow in terminal/IDE | Personal agent via messaging apps |
 | **Invocation control** | Fine-grained (`user-invocable`, `disable-model-invocation`) | Basic (on/off relevance) |
 | **Dependencies** | Not declared (assumed from environment) | Declared in frontmatter |
-| **Marketplace** | None | ClawHub (2,800+ skills) |
+| **Marketplace** | None | ClawHub (3,200+ skills) |
 | **Self-install** | Manual | AI can install skills autonomously |
 | **Background knowledge** | `user-invocable: false` | Not directly equivalent |
 | **Subagent execution** | `context: fork` | Not supported |

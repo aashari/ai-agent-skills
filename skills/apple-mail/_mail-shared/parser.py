@@ -66,7 +66,7 @@ if __name__ == '__main__':
         path = find_emlx(rowid)
         if path:
             body, atts = parse_emlx(path)
-            results.append({"rowid": rowid, "path": path, "body": body[:3000], "attachments": atts})
+            results.append({"rowid": rowid, "path": path, "body": body[:6000], "attachments": atts})
         else:
             results.append({"rowid": rowid, "path": None, "body": "[not cached locally]", "attachments": []})
     print(json.dumps(results, ensure_ascii=False))

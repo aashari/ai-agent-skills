@@ -120,7 +120,7 @@ The `_mail-shared/parser.py` utility must be accessible from the skill execution
 
 Apple Mail syncs all accounts to a local SQLite database at `~/Library/Mail/V10/MailData/Envelope Index`. These skills query that database directly — no API calls, no network access, no credentials needed beyond Full Disk Access.
 
-Email bodies are read from `.emlx` files in `~/Library/Mail/V10/`. The `_shared/parser.py` utility handles emlx parsing (skip the byte-count header, parse RFC 2822, strip HTML).
+Email bodies are read from `.emlx` files in `~/Library/Mail/V10/`. The `_mail-shared/parser.py` utility handles emlx parsing (skip the byte-count header, parse RFC 2822, strip HTML).
 
 The database is safe to query while Mail.app is open (WAL journal mode).
 
