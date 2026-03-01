@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3]
+      bins: [sqlite3]
 ---
 
 # Calendar Search — Find Events by Keyword
@@ -24,7 +24,6 @@ Search across all calendar events by title, location, or description.
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 QUERY="$ARGUMENTS"
 
@@ -61,7 +60,6 @@ GROUP BY ci.ROWID, event_date
 ORDER BY COALESCE(oc.occurrence_start_date, oc.occurrence_date) DESC
 LIMIT 50;
 "
-ENDSSH
 ```
 
 ## Output Format

@@ -6,12 +6,12 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3, python3]
 ---
 
 # Calendar Free — Find Open Time Slots
 
-Find available time slots in a day, considering existing events. Working hours assumed 08:00–18:00 WIB unless specified.
+Find available time slots in a day, considering existing events. Working hours assumed 08:00–18:00 local time unless specified.
 
 ## Arguments
 
@@ -25,7 +25,6 @@ Find available time slots in a day, considering existing events. Working hours a
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
@@ -112,7 +111,7 @@ for start, end, title in events:
 if cursor < day_end_unix - 1800:
     free_slots.append((cursor, day_end_unix, day_end_unix - cursor))
 
-print(f'Schedule for ${TARGET_DATE}:')
+print(f'Schedule for $TARGET_DATE:')
 print()
 if events:
     print('Busy:')
@@ -129,7 +128,6 @@ if free_slots:
 else:
     print('No free slots during working hours.')
 "
-ENDSSH
 ```
 
 ## Output Format

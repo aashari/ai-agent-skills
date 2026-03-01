@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3]
 ---
 
 # Calendar Event — Full Event Details
@@ -24,7 +24,6 @@ Fetch complete details for a specific event: attendees, description, video link,
 ### 1. Find the event
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
@@ -70,13 +69,11 @@ GROUP BY ci.ROWID
 ORDER BY COALESCE(oc.occurrence_date, ci.start_date) DESC
 LIMIT 1;
 "
-ENDSSH
 ```
 
 ### 2. Fetch attendees (if has_attendees = 1)
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$EVENT_ROWID"
 
@@ -95,13 +92,11 @@ FROM Participant
 WHERE owner_id = $EVENT_ID
 ORDER BY entity_type DESC, status;
 "
-ENDSSH
 ```
 
 ### 3. Fetch recurrence rule (if has_recurrences = 1)
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$EVENT_ROWID"
 
@@ -119,7 +114,6 @@ FROM Recurrence
 WHERE owner_id = $EVENT_ID
 LIMIT 1;
 "
-ENDSSH
 ```
 
 ## Output Format

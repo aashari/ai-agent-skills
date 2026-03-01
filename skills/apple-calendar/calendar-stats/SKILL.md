@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3]
+      bins: [sqlite3]
 ---
 
 # Calendar Stats — Meeting Volume and Time Audit
@@ -23,7 +23,6 @@ Show meeting statistics for a time period.
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
@@ -110,7 +109,6 @@ WHERE oc.occurrence_date >= $START_CD AND oc.occurrence_date <= $END_CD
   AND ci.hidden = 0 AND ci.status != 2 AND s.type != 5 AND s.disabled = 0
 GROUP BY day ORDER BY events DESC LIMIT 5;
 "
-ENDSSH
 ```
 
 ## Output Format

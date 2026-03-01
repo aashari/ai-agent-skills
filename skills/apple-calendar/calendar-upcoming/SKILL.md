@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3]
 ---
 
 # Calendar Upcoming — Events for Next N Days
@@ -27,7 +27,6 @@ Show upcoming events grouped by day. Default: next 7 days.
 ### 1. Parse time range from `$ARGUMENTS`
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
@@ -74,7 +73,6 @@ WHERE oc.occurrence_date >= $NOW_CD
 GROUP BY ci.ROWID, day
 ORDER BY oc.occurrence_date, ci.all_day DESC, COALESCE(oc.occurrence_start_date, oc.occurrence_date);
 "
-ENDSSH
 ```
 
 ## Output Format

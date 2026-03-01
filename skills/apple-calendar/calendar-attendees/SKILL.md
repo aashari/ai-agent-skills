@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3]
+      bins: [sqlite3]
 ---
 
 # Calendar Attendees — People and Meeting Roster
@@ -27,7 +27,6 @@ Two modes:
 ### Mode 1: Find meetings with a person
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 PERSON="$ARGUMENTS"
 
@@ -68,13 +67,11 @@ WHERE (p.email LIKE '%${PERSON}%')
 GROUP BY ci.ROWID, event_date
 ORDER BY oc.occurrence_date;
 "
-ENDSSH
 ```
 
 ### Mode 2: List attendees for a specific event
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$ARGUMENTS"
 
@@ -93,7 +90,6 @@ FROM Participant
 WHERE owner_id = $EVENT_ID
 ORDER BY entity_type DESC, status;
 "
-ENDSSH
 ```
 
 ## Output Format

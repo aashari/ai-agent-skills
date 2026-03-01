@@ -1,31 +1,15 @@
 ---
 name: calendar-core
-description: Background technical reference for Apple Calendar data on mac-mini via SSH. Auto-loaded when any calendar-* skill executes. Contains DB path, CoreData epoch conversion, schema, canonical query, and filtering rules.
+description: Background technical reference for Apple Calendar data on macOS. Auto-loaded when any calendar-* skill executes. Contains DB path, CoreData epoch conversion, schema, canonical query, and filtering rules.
 user-invocable: false
+allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3, python3]
 ---
 
-# Apple Calendar — Access via SSH
-
-## Critical: All Commands Run on mac-mini.ashari.cloud
-
-Calendar data lives on the Mac Mini, not on this machine. All queries must SSH there:
-
-```bash
-# Single-line query
-ssh mac-mini.ashari.cloud "sqlite3 \"/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb\" 'SELECT ...'"
-
-# Multi-line script (preferred for complex queries)
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
-sqlite3 "$DB" "
-  SELECT ...
-"
-ENDSSH
-```
+# Apple Calendar — Local Data Reference
 
 ## Database Location
 
@@ -34,6 +18,11 @@ ENDSSH
 ```
 
 WAL mode — always accompanied by `.sqlitedb-shm` and `.sqlitedb-wal`. Reads work fine against the live database without locking.
+
+```bash
+DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+sqlite3 "$DB" "SELECT ..."
+```
 
 ## Critical: CoreData Epoch (NOT Unix Epoch)
 

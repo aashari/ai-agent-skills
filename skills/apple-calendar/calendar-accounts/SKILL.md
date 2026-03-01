@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3]
+      bins: [sqlite3]
 ---
 
 # Calendar Accounts — All Synced Calendars
@@ -16,7 +16,6 @@ List every synced account and their individual calendars with upcoming event cou
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 
 echo "=== ALL CALENDARS BY ACCOUNT ==="
@@ -67,7 +66,6 @@ WHERE oc.occurrence_date >= $NOW_CD
 GROUP BY c.ROWID
 ORDER BY upcoming_count DESC;
 "
-ENDSSH
 ```
 
 ## Output Format

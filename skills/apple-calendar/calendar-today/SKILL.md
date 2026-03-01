@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3, python3]
 ---
 
 # Calendar Today — Today's Schedule
@@ -16,7 +16,6 @@ Show all events scheduled for today, all-day events first, then timed events in 
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 
 # CoreData epoch: seconds since 2001-01-01
@@ -64,7 +63,6 @@ WHERE oc.occurrence_date >= $NOW_CD
 GROUP BY ci.ROWID
 ORDER BY ci.all_day DESC, oc.occurrence_date, COALESCE(oc.occurrence_start_date, oc.occurrence_date);
 "
-ENDSSH
 ```
 
 ## Output Format

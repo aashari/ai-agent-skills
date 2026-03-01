@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3]
+      bins: [sqlite3]
 ---
 
 # Calendar Recurring — Standing Meetings and Series
@@ -23,7 +23,6 @@ List all active recurring events, grouped by frequency.
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 FILTER="$ARGUMENTS"
 
@@ -83,7 +82,6 @@ WHERE ci.hidden = 0
   $KEYWORD_FILTER
 ORDER BY r.frequency, r.interval, COALESCE(oc_next.occurrence_start_date, oc_next.occurrence_date);
 "
-ENDSSH
 ```
 
 ## Output Format

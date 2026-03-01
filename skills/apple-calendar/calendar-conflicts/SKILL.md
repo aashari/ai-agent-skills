@@ -6,7 +6,7 @@ allowed-tools: Bash
 metadata:
   openclaw:
     requires:
-      bins: [ssh, sqlite3, python3]
+      bins: [sqlite3, python3]
 ---
 
 # Calendar Conflicts — Find Overlapping Events
@@ -23,7 +23,6 @@ Detect time-overlapping events (double-bookings). All-day events are excluded si
 ## Steps
 
 ```bash
-ssh mac-mini.ashari.cloud bash << 'ENDSSH'
 DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
@@ -90,7 +89,6 @@ else:
         print(f\"         overlaps [{b['start_time']}-{b['end_time']}] {b['title']} ({b['cal']})\")
         print()
 "
-ENDSSH
 ```
 
 ## Output Format
