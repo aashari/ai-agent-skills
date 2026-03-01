@@ -1,6 +1,7 @@
 ---
 name: mail-security
-description: Find security-related emails — login alerts, 2FA changes, password resets, new device notifications, suspicious activity, and account security events across all accounts. Use when user asks about security alerts in their email, account access notifications, or wants to review security events. Arguments: optional time range or account/service filter.
+description: >-
+  Find security-related emails — login alerts, 2FA changes, password resets, new device notifications, suspicious activity, and account security events across all accounts. Use when user asks about security alerts in their email, account access notifications, or wants to review security events. Arguments: optional time range or account/service filter.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

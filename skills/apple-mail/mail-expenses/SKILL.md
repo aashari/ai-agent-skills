@@ -1,6 +1,7 @@
 ---
 name: mail-expenses
-description: Extract financial transactions, expenses, receipts, payments, and invoices from email. Summarize spending with amounts, merchants, and categories. Use when user asks about expenses, spending, receipts, payments, or financial transactions from email. Arguments: time range like "last 24 hours", "this month", "last week", or a specific date range.
+description: >-
+  Extract financial transactions, expenses, receipts, payments, and invoices from email. Summarize spending with amounts, merchants, and categories. Use when user asks about expenses, spending, receipts, payments, or financial transactions from email. Arguments: time range like "last 24 hours", "this month", "last week", or a specific date range.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

@@ -1,6 +1,7 @@
 ---
 name: mail-banking
-description: Show bank notifications, transaction alerts, and account activity from email. Use when user asks about bank emails, account notifications, transfer confirmations, or banking activity. Arguments: optional bank name, time range, or transaction type like "transfers", "payments", "top-ups".
+description: >-
+  Show bank notifications, transaction alerts, and account activity from email. Use when user asks about bank emails, account notifications, transfer confirmations, or banking activity. Arguments: optional bank name, time range, or transaction type like "transfers", "payments", "top-ups".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

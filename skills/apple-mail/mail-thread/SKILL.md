@@ -1,6 +1,7 @@
 ---
 name: mail-thread
-description: Read and summarize a complete email thread or conversation. Show all messages in order, who said what, and what was decided. Use when user wants to read a specific email thread, catch up on a conversation, or understand what happened in an email chain. Arguments: subject line keywords, ROWID of any message in the thread, sender name, or conversation topic.
+description: >-
+  Read and summarize a complete email thread or conversation. Show all messages in order, who said what, and what was decided. Use when user wants to read a specific email thread, catch up on a conversation, or understand what happened in an email chain. Arguments: subject line keywords, ROWID of any message in the thread, sender name, or conversation topic.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

@@ -1,6 +1,7 @@
 ---
 name: mail-triage
-description: Intelligent inbox triage — surface the most important emails across all accounts, prioritized by urgency and requiring attention. Use when user wants a smart overview of what needs their attention, asks "what's important in my email", or wants help deciding what to read first. Arguments: optional time window (default: last 48 hours) or account filter.
+description: >-
+  Intelligent inbox triage — surface the most important emails across all accounts, prioritized by urgency and requiring attention. Use when user wants a smart overview of what needs their attention, asks "what's important in my email", or wants help deciding what to read first. Arguments: optional time window (default: last 48 hours) or account filter.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

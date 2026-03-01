@@ -1,6 +1,7 @@
 ---
 name: mail-travel
-description: Find flight bookings, hotel reservations, travel itineraries, and booking confirmations from email. Use when user asks about upcoming trips, travel plans, booking references, flight details, or hotel reservations. Arguments: optional destination, airline, date range, or booking service.
+description: >-
+  Find flight bookings, hotel reservations, travel itineraries, and booking confirmations from email. Use when user asks about upcoming trips, travel plans, booking references, flight details, or hotel reservations. Arguments: optional destination, airline, date range, or booking service.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

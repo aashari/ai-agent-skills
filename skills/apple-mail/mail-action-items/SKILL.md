@@ -1,6 +1,7 @@
 ---
 name: mail-action-items
-description: Extract action items, tasks, and to-dos from recent emails. Scan email bodies for requests, deadlines, approvals needed, and follow-ups. Use when user wants to know what they need to do based on their email, or asks "what do I need to act on?" Arguments: optional time range (default: last 3 days) or account filter.
+description: >-
+  Extract action items, tasks, and to-dos from recent emails. Scan email bodies for requests, deadlines, approvals needed, and follow-ups. Use when user wants to know what they need to do based on their email, or asks "what do I need to act on?" Arguments: optional time range (default: last 3 days) or account filter.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

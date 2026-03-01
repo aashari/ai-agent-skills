@@ -1,6 +1,7 @@
 ---
 name: mail-needs-reply
-description: Find emails that are waiting for a reply — unread messages from real people that haven't been responded to. Use when user asks what they haven't replied to, what's waiting for their response, or wants to find unanswered emails. Arguments: optional time window (default: last 7 days) or account filter.
+description: >-
+  Find emails that are waiting for a reply — unread messages from real people that haven't been responded to. Use when user asks what they haven't replied to, what's waiting for their response, or wants to find unanswered emails. Arguments: optional time window (default: last 7 days) or account filter.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

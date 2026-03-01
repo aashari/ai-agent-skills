@@ -1,6 +1,7 @@
 ---
 name: mail-digest
-description: Email digest for any time period — today, yesterday, last N hours/days, this week, a specific date, or while-I-was-away ranges. Categorizes by urgency, surfaces unread, flags financial/security emails, filters noise. Auto-invoke when user asks about email for any time period: "what came in today", "catch me up", "any emails this week", "what did I miss", "emails from yesterday", "last 3 hours", "since Monday".
+description: >-
+  Email digest for any time period — today, yesterday, last N hours/days, this week, a specific date, or while-I-was-away ranges. Categorizes by urgency, surfaces unread, flags financial/security emails, filters noise. Auto-invoke when user asks about email for any time period: "what came in today", "catch me up", "any emails this week", "what did I miss", "emails from yesterday", "last 3 hours", "since Monday".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

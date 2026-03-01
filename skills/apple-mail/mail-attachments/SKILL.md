@@ -1,6 +1,7 @@
 ---
 name: mail-attachments
-description: Find emails with attachments across all accounts, searchable by filename, extension, or sender. Use when user is looking for a document, PDF, spreadsheet, image, or any file sent by email. Arguments: optional filename/extension filter (e.g. "pdf", "contract", "invoice.xlsx", "from:boss"), time range, or size filter.
+description: >-
+  Find emails with attachments across all accounts, searchable by filename, extension, or sender. Use when user is looking for a document, PDF, spreadsheet, image, or any file sent by email. Arguments: optional filename/extension filter (e.g. "pdf", "contract", "invoice.xlsx", "from:boss"), time range, or size filter.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

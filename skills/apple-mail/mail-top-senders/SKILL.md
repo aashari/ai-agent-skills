@@ -1,6 +1,7 @@
 ---
 name: mail-top-senders
-description: Show who sends the most email, communication frequency analysis, and relationship mapping. Use when user asks who emails them most, top contacts, communication patterns, or wants to understand their email social graph. Arguments: optional time range (default: last 90 days), account filter, or "humans only" to exclude automated senders.
+description: >-
+  Show who sends the most email, communication frequency analysis, and relationship mapping. Use when user asks who emails them most, top contacts, communication patterns, or wants to understand their email social graph. Arguments: optional time range (default: last 90 days), account filter, or "humans only" to exclude automated senders.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

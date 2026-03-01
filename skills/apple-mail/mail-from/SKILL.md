@@ -1,6 +1,7 @@
 ---
 name: mail-from
-description: Show all emails from a specific person, email address, or domain. Summarize the relationship and communication history. Use when user asks about emails from someone, or wants to see what a specific sender has sent them. Arguments: person name, email address, or domain (e.g. "john@company.com", "amazon.com", "my boss Sarah").
+description: >-
+  Show all emails from a specific person, email address, or domain. Summarize the relationship and communication history. Use when user asks about emails from someone, or wants to see what a specific sender has sent them. Arguments: person name, email address, or domain (e.g. "john@company.com", "amazon.com", "my boss Sarah").
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

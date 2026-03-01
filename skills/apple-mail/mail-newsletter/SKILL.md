@@ -1,6 +1,7 @@
 ---
 name: mail-newsletter
-description: Identify newsletters and mailing lists in email, show volume per sender, and help clean up subscriptions. Use when user wants to see what newsletters they're subscribed to, audit mailing lists, or identify email noise. Arguments: optional time range or "unsubscribe" to surface opt-out links.
+description: >-
+  Identify newsletters and mailing lists in email, show volume per sender, and help clean up subscriptions. Use when user wants to see what newsletters they're subscribed to, audit mailing lists, or identify email noise. Arguments: optional time range or "unsubscribe" to surface opt-out links.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

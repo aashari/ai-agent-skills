@@ -1,6 +1,7 @@
 ---
 name: mail-work
-description: Show work emails only, filtered to Exchange/EWS accounts and corporate email domains. Digest with priorities. Use when user asks about work email, work inbox, or wants to separate work from personal mail. Arguments: optional date range or "today", "yesterday", "this week".
+description: >-
+  Show work emails only, filtered to Exchange/EWS accounts and corporate email domains. Digest with priorities. Use when user asks about work email, work inbox, or wants to separate work from personal mail. Arguments: optional date range or "today", "yesterday", "this week".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

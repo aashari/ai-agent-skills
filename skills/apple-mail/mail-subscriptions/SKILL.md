@@ -1,6 +1,7 @@
 ---
 name: mail-subscriptions
-description: Find and list all active subscriptions and recurring charges from email history. Show renewal dates, amounts, and services. Use when user asks about subscriptions, recurring charges, what they're paying for monthly, or wants to audit their subscriptions. Arguments: optional time range to search (default: last 13 months to catch all annual subs).
+description: >-
+  Find and list all active subscriptions and recurring charges from email history. Show renewal dates, amounts, and services. Use when user asks about subscriptions, recurring charges, what they're paying for monthly, or wants to audit their subscriptions. Arguments: optional time range to search (default: last 13 months to catch all annual subs).
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

@@ -1,6 +1,7 @@
 ---
 name: mail-contacts
-description: Extract contacts and build a communication directory from email history. Find email addresses, frequency of contact, and relationship strength. Use when user wants to find someone's email address, see all contacts, or understand their communication network. Arguments: optional person name, company, domain, or "top contacts" / "recent contacts".
+description: >-
+  Extract contacts and build a communication directory from email history. Find email addresses, frequency of contact, and relationship strength. Use when user wants to find someone's email address, see all contacts, or understand their communication network. Arguments: optional person name, company, domain, or "top contacts" / "recent contacts".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

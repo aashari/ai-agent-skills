@@ -1,6 +1,7 @@
 ---
 name: mail-stats
-description: Email volume statistics, trends, and patterns. Show daily/weekly/monthly volume, peak periods, read rates, and account breakdowns. Use when user asks about email statistics, how much email they get, trends, or wants analytics on their inbox. Arguments: optional time range or specific metric like "by day", "by account", "unread rate".
+description: >-
+  Email volume statistics, trends, and patterns. Show daily/weekly/monthly volume, peak periods, read rates, and account breakdowns. Use when user asks about email statistics, how much email they get, trends, or wants analytics on their inbox. Arguments: optional time range or specific metric like "by day", "by account", "unread rate".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

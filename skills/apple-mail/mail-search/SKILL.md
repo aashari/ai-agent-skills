@@ -1,6 +1,7 @@
 ---
 name: mail-search
-description: Search Apple Mail across all synced accounts by keyword, subject, sender, or any combination. Use when user asks to find an email, search for a message, or look for something in their mail. Arguments: search terms, optionally with sender:, subject:, from:, account: prefixes, and time filters like "last 30 days" or "this year".
+description: >-
+  Search Apple Mail across all synced accounts by keyword, subject, sender, or any combination. Use when user asks to find an email, search for a message, or look for something in their mail. Arguments: search terms, optionally with sender:, subject:, from:, account: prefixes, and time filters like "last 30 days" or "this year".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

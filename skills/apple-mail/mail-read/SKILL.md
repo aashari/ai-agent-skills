@@ -1,6 +1,7 @@
 ---
 name: mail-read
-description: Read the full content of a specific email by ROWID, subject search, or description. Shows headers, body, and any attachment names. Use when user wants to read a specific email, see the full text of a message, or asks "what does that email say". Arguments: ROWID number, subject keywords, or a description of the email to find.
+description: >-
+  Read the full content of a specific email by ROWID, subject search, or description. Shows headers, body, and any attachment names. Use when user wants to read a specific email, see the full text of a message, or asks "what does that email say". Arguments: ROWID number, subject keywords, or a description of the email to find.
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash

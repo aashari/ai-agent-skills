@@ -1,6 +1,7 @@
 ---
 name: mail-meetings
-description: Find meeting invites, calendar events, and meeting-related emails (notes, agendas, reschedules). Use when user asks about meetings in their email, upcoming invites, or wants to see meeting notes. Arguments: optional time range or "upcoming", "today", "this week".
+description: >-
+  Find meeting invites, calendar events, and meeting-related emails (notes, agendas, reschedules). Use when user asks about meetings in their email, upcoming invites, or wants to see meeting notes. Arguments: optional time range or "upcoming", "today", "this week".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools: Bash
