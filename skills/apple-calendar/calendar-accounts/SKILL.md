@@ -16,7 +16,7 @@ List every synced account and their individual calendars with upcoming event cou
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 
 echo "=== ALL CALENDARS BY ACCOUNT ==="
 sqlite3 -separator '|' "$DB" "

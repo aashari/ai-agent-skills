@@ -27,7 +27,7 @@ Show upcoming events grouped by day. Default: next 7 days.
 ### 1. Parse time range from `$ARGUMENTS`
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
 # Determine day count from args (default 7)

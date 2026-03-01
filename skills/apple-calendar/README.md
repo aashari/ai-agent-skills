@@ -1,18 +1,17 @@
 # Apple Calendar Skills
 
-Reusable skills for querying Apple Calendar data via direct SQLite access on mac-mini.
+Reusable skills for querying Apple Calendar data via direct SQLite access on macOS.
 
 ## Requirements
 
-- SSH access to `mac-mini.ashari.cloud`
-- macOS with Apple Calendar syncing accounts (iCloud, Google, Exchange)
-- `sqlite3` and `python3` available on mac-mini (both included with macOS)
+- macOS with Apple Calendar configured and syncing accounts (iCloud, Google, Exchange)
+- `sqlite3` and `python3` available (both included with macOS)
 
 ## Database
 
 All data lives at:
 ```
-/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb
+$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb
 ```
 
 Direct SQLite reads work against the live database. **CoreData epoch** — all timestamps are offset from January 1, 2001, not 1970. Add `978307200` to convert to Unix epoch.

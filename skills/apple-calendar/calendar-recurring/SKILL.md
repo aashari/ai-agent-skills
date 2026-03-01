@@ -23,7 +23,7 @@ List all active recurring events, grouped by frequency.
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 FILTER="$ARGUMENTS"
 
 NOW_CD=$(( $(date +%s) - 978307200 ))

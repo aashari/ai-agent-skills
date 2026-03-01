@@ -23,7 +23,7 @@ Show meeting statistics for a time period.
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
 DAYS=30

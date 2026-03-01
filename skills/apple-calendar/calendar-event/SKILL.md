@@ -24,7 +24,7 @@ Fetch complete details for a specific event: attendees, description, video link,
 ### 1. Find the event
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
 # Try as ROWID first, then fall back to title search
@@ -74,7 +74,7 @@ LIMIT 1;
 ### 2. Fetch attendees (if has_attendees = 1)
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$EVENT_ROWID"
 
 sqlite3 -separator '|' "$DB" "
@@ -97,7 +97,7 @@ ORDER BY entity_type DESC, status;
 ### 3. Fetch recurrence rule (if has_recurrences = 1)
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$EVENT_ROWID"
 
 sqlite3 -separator '|' "$DB" "

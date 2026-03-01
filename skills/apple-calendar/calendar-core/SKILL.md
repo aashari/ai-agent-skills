@@ -14,13 +14,13 @@ metadata:
 ## Database Location
 
 ```
-/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb
+$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb
 ```
 
 WAL mode — always accompanied by `.sqlitedb-shm` and `.sqlitedb-wal`. Reads work fine against the live database without locking.
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 sqlite3 "$DB" "SELECT ..."
 ```
 
@@ -71,7 +71,7 @@ Always use `OccurrenceCache` as the entry point for any time-windowed query.
 
 ### Store.type Values
 - `0` — local
-- `1` — local (andi@marketbetter.ai)
+- `1` — local
 - `5` — "Found in Mail" — **always exclude** (auto-created duplicates from email invites)
 
 ### Participant.entity_type Values
@@ -154,14 +154,13 @@ WHERE owner_id = EVENT_ROWID
 ORDER BY entity_type DESC, status;
 ```
 
-## Active Accounts (Reference)
+Filter `s.disabled = 0` to get only active accounts. Discover your active accounts with:
 
-Active stores with event data:
-- Default (local)
-- iCloud → Home, Work, personal calendars
-- andi.muhammadmuqsithashari@codapayments.com → work meetings, Infra Availability
-- andi@ashari.tech → Ashari Tech calendar
-- mq.aashari@gmail.com → personal Gmail
-- asharitechengg@gmail.com → engineering
-
-Filter `s.disabled = 0` to get only active accounts.
+```sql
+SELECT s.name, s.type, COUNT(*) as calendars
+FROM Store s
+JOIN Calendar c ON c.store_id = s.ROWID
+WHERE s.type != 5 AND s.disabled = 0
+GROUP BY s.ROWID
+ORDER BY s.name;
+```

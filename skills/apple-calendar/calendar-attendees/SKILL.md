@@ -18,7 +18,7 @@ Two modes:
 ## Arguments
 
 `$ARGUMENTS`:
-- Person name or email: `"zaky"`, `"sunder@marketbetter.ai"`, `"elmo"`
+- Person name or email: `"alice"`, `"alice@example.com"`, `"bob"`
 - Event ROWID: `"1234"`
 - Combined: `"standup attendees"`, `"who is in the weekly sync"`
 
@@ -27,7 +27,7 @@ Two modes:
 ### Mode 1: Find meetings with a person
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 PERSON="$ARGUMENTS"
 
 NOW_CD=$(( $(date +%s) - 978307200 ))
@@ -72,7 +72,7 @@ ORDER BY oc.occurrence_date;
 ### Mode 2: List attendees for a specific event
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 EVENT_ID="$ARGUMENTS"
 
 sqlite3 -separator '|' "$DB" "

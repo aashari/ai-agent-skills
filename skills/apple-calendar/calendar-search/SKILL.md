@@ -24,7 +24,7 @@ Search across all calendar events by title, location, or description.
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 QUERY="$ARGUMENTS"
 
 # Extract keyword (strip known modifiers for SQL LIKE)

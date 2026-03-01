@@ -23,7 +23,7 @@ Detect time-overlapping events (double-bookings). All-day events are excluded si
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
 DAYS=7

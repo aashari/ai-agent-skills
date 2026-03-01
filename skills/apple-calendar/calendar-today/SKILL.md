@@ -16,7 +16,7 @@ Show all events scheduled for today, all-day events first, then timed events in 
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 
 # CoreData epoch: seconds since 2001-01-01
 # Today's window: midnight to midnight local time

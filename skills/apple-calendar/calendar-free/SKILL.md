@@ -25,7 +25,7 @@ Find available time slots in a day, considering existing events. Working hours a
 ## Steps
 
 ```bash
-DB="/Users/andi/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
+DB="$HOME/Library/Group Containers/group.com.apple.calendar/Calendar.sqlitedb"
 ARGS="$ARGUMENTS"
 
 # Determine target date(s)
