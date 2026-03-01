@@ -32,7 +32,7 @@ model: sonnet               # Model override
 ## OpenClaw
 
 **Platform:** Open-source local AI agent (gateway + messaging interface)
-**Install location:** Via `claw install <skill>` from ClawHub, or manual directory drop
+**Install location:** `~/.openclaw/skills/<skill-name>/SKILL.md` (managed — visible to all agents)
 **Invocation:** Via chat message to the agent, or auto-invoked based on relevance
 **Marketplace:** [ClawHub](https://github.com/openclaw/clawhub) — 3,200+ community skills
 
@@ -43,6 +43,7 @@ model: sonnet               # Model override
 name: my-skill
 description: What this skill does
 version: 1.0.0
+user-invocable: false        # Background knowledge — not exposed as a command
 metadata:
   openclaw:
     requires:
@@ -50,13 +51,13 @@ metadata:
       bins: [curl, jq]          # Required CLI binaries (ALL must exist)
       anyBins: [python3, python] # Required CLI binaries (ANY must exist)
       config: [~/.config/tool]  # Required config file paths
-    primaryEnv: API_KEY_NAME    # Main credential env var
-    emoji: "📧"                 # Display icon
+    primaryEnv: API_KEY_NAME  # Main credential env var
+    emoji: "📧"               # Display icon
     homepage: https://github.com/...
 ---
 ```
 
-**Key capability:** Dependency declarations (`requires.env`, `requires.bins`) let the registry validate skill prerequisites before install. Skills are community-published and installable with one command.
+**Key capability:** Dependency declarations (`requires.env`, `requires.bins`) let the registry validate skill prerequisites before install. `user-invocable: false` is supported — works the same as Claude Code (background knowledge, not a user-facing command). Skills are community-published and installable with one command.
 
 ---
 
@@ -65,13 +66,22 @@ metadata:
 | | Claude Code | OpenClaw |
 |---|---|---|
 | **Focus** | Developer workflow in terminal/IDE | Personal agent via messaging apps |
-| **Invocation control** | Fine-grained (`user-invocable`, `disable-model-invocation`) | Basic (on/off relevance) |
+| **Invocation control** | Fine-grained (`user-invocable`, `disable-model-invocation`) | `user-invocable` supported; no `disable-model-invocation` |
 | **Dependencies** | Not declared (assumed from environment) | Declared in frontmatter |
 | **Marketplace** | None | ClawHub (3,200+ skills) |
 | **Self-install** | Manual | AI can install skills autonomously |
-| **Background knowledge** | `user-invocable: false` | Not directly equivalent |
+| **Background knowledge** | `user-invocable: false` | `user-invocable: false` (equivalent) |
 | **Subagent execution** | `context: fork` | Not supported |
 
 ## Compatibility
 
-Skills in this repo use Claude Code frontmatter format. To use with OpenClaw, add `metadata.openclaw` to the frontmatter with relevant `requires` declarations. The instruction body (everything after frontmatter) is platform-agnostic.
+Skills in this repo include both Claude Code and OpenClaw frontmatter fields in the same `SKILL.md`. The instruction body (everything after frontmatter) is platform-agnostic and works on both.
+
+> **YAML gotcha:** OpenClaw's YAML parser rejects plain (unquoted) scalar values that contain `: ` (colon-space). Any description like `"Find emails. Arguments: optional filter"` will cause the skill to silently fail to load. Use YAML block scalar format for descriptions that contain `: `:
+>
+> ```yaml
+> description: >-
+>   Find emails. Arguments: optional filter
+> ```
+>
+> All skills in this repo already use block scalar format where needed. Keep this in mind when writing new skills.

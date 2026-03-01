@@ -7,6 +7,7 @@ A collection of reusable skills for AI agent platforms. Each skill set is self-c
 | Skill Set | Skills | Description |
 |---|---|---|
 | [apple-mail](skills/apple-mail/) | 22 skills | Read and query synced Apple Mail data locally on macOS |
+| [apple-calendar](skills/apple-calendar/) | 11 skills | Read and query Apple Calendar events via local SQLite on macOS |
 
 ## What Are Skills?
 
@@ -23,13 +24,15 @@ See [docs/skill-platforms.md](docs/skill-platforms.md) for a comparison of how e
 
 ```
 skills/
-└── apple-mail/         # Apple Mail skill set (22 skills)
+├── apple-mail/         # Apple Mail skill set (22 skills)
+│   ├── README.md       # Setup guide for all platforms
+│   ├── _mail-shared/   # Shared utilities (parser.py)
+│   ├── mail-core/      # Background technical reference (auto-loaded)
+│   └── mail-*/         # 21 user-invocable skills
+└── apple-calendar/     # Apple Calendar skill set (11 skills)
     ├── README.md       # Setup guide for all platforms
-    ├── _mail-shared/   # Shared utilities (parser.py)
-    ├── mail-core/      # Background technical reference (auto-loaded)
-    ├── mail-digest/    # Email digest for any time period
-    ├── mail-triage/    # Intelligent inbox triage
-    └── ...             # 19 more skills
+    ├── calendar-core/  # Background technical reference (auto-loaded)
+    └── calendar-*/     # 10 user-invocable skills
 
 docs/
 └── skill-platforms.md  # Claude Code vs OpenClaw skill format comparison
