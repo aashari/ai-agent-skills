@@ -10,11 +10,15 @@ DB = os.path.expanduser("~/Library/Mail/V10/MailData/Envelope Index")
 
 def find_emlx(rowid):
     try:
-        result = subprocess.check_output(
-            f'find ~/Library/Mail/V10/ -name "{rowid}.emlx" 2>/dev/null | head -1',
-            shell=True, text=True
-        ).strip()
-        return result if result else None
+        # Try full emlx first, fall back to partial (partial = headers + truncated body, still readable)
+        for pattern in [f"{rowid}.emlx", f"{rowid}.partial.emlx"]:
+            result = subprocess.check_output(
+                f'find ~/Library/Mail/V10/ -name "{pattern}" 2>/dev/null | head -1',
+                shell=True, text=True
+            ).strip()
+            if result:
+                return result
+        return None
     except:
         return None
 
