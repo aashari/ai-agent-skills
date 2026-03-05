@@ -78,7 +78,10 @@ python3 ~/.claude/skills/_mail-shared/parser.py <ROWID>
 ## Step 5: Find the raw file if needed
 ```bash
 find ~/Library/Mail/V10/ -name "<ROWID>.emlx" 2>/dev/null | head -1
+# If not found, try partial (IMAP lazy-load — body is still readable):
+find ~/Library/Mail/V10/ -name "<ROWID>.partial.emlx" 2>/dev/null | head -1
 ```
+The parser handles partial fallback automatically. Use raw find only for debugging.
 
 ## Output Format
 **Email Details**
