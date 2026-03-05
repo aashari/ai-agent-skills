@@ -16,10 +16,18 @@ metadata:
 Period: **$ARGUMENTS** (default: last 24 hours)
 
 ## Step 1: Find financial emails
+
+Use SQLite date functions — never compute Unix epochs manually (wrong year risk).
+
 ```bash
 DB="$HOME/Library/Mail/V10/MailData/Envelope Index"
-# Compute SINCE from $ARGUMENTS (default: last 24 hours = 86400 seconds)
-SINCE=$(($(date +%s) - 86400))
+
+# Date range from $ARGUMENTS. Use SQLite date expressions directly:
+# "yesterday"   → dt >= date('now','-1 day','localtime') AND dt < date('now','localtime')
+# "today"       → dt >= date('now','localtime')
+# "last 7 days" → dt >= date('now','-7 days','localtime')
+# "this month"  → dt >= date('now','start of month','localtime')
+# Always print the range before querying so the period is visible in output.
 
 sqlite3 "$DB" "
 SELECT datetime(m.date_received,'unixepoch','localtime') as dt,
@@ -28,7 +36,8 @@ FROM messages m
 JOIN subjects  s  ON m.subject = s.ROWID
 JOIN addresses a  ON m.sender  = a.ROWID
 JOIN mailboxes mb ON m.mailbox = mb.ROWID
-WHERE m.date_received >= ${SINCE}
+WHERE datetime(m.date_received,'unixepoch','localtime') >= date('now','-1 day','localtime')
+  AND datetime(m.date_received,'unixepoch','localtime') <  date('now','localtime')
   AND m.deleted = 0
   AND mb.url NOT LIKE '%Spam%' AND mb.url NOT LIKE '%Trash%'
   AND mb.url NOT LIKE '%Sent%'
@@ -103,14 +112,16 @@ patterns = [
 - **Credit Card Payments** (paying off balances — not new spending)
 
 ## Output Format
+
 **Financial Activity — [PERIOD]**
 
-List each transaction:
-| Time | Description/Merchant | Type | Amount |
-|---|---|---|---|
+Line-by-line per account (no markdown tables — WhatsApp/Telegram render them as raw text):
+
+💳 **[Bank/Wallet Name]**
+
+HH:MM · [Merchant] · Rp X.XXX
 
 Subtotals by category.
-Grand total cash out.
-Note any refunds separately (money in).
-Net total if refunds present.
-Flag any unusually large transactions.
+**Total: Rp X.XXX**
+
+Note refunds separately. Flag duplicates and unusually large transactions proactively.

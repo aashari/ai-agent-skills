@@ -18,7 +18,7 @@ Looking for: unread emails from humans (not bots) with no follow-up in your Sent
 ## Step 1: Get unread emails from non-automated senders
 ```bash
 DB="$HOME/Library/Mail/V10/MailData/Envelope Index"
-SINCE=$(($(date +%s) - 604800))  # 7 days default
+# Use SQLite date expressions — never compute Unix epochs manually.
 
 sqlite3 "$DB" "
 SELECT datetime(m.date_received,'unixepoch','localtime') as dt,
@@ -29,7 +29,7 @@ FROM messages m
 JOIN subjects  s  ON m.subject = s.ROWID
 JOIN addresses a  ON m.sender  = a.ROWID
 JOIN mailboxes mb ON m.mailbox = mb.ROWID
-WHERE m.date_received >= ${SINCE}
+WHERE datetime(m.date_received,'unixepoch','localtime') >= date('now','-7 days','localtime')
   AND m.read = 0
   AND m.deleted = 0
   AND m.automated_conversation = 0

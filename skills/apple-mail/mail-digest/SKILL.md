@@ -35,18 +35,12 @@ Interpret $ARGUMENTS naturally. Map to START and END unix timestamps:
 ```bash
 DB="$HOME/Library/Mail/V10/MailData/Envelope Index"
 
-# Set SINCE and UNTIL based on parsed $ARGUMENTS
-# Example for "today":
-SINCE=$(date -v0H -v0M -v0S +%s 2>/dev/null || date -d "today 00:00:00" +%s)
-UNTIL=$(date +%s)
-
-# Example for "yesterday":
-# SINCE=$(date -v-1d -v0H -v0M -v0S +%s 2>/dev/null || date -d "yesterday 00:00:00" +%s)
-# UNTIL=$(date -v0H -v0M -v0S +%s 2>/dev/null || date -d "today 00:00:00" +%s)
-
-# Example for "last N hours":
-# SINCE=$(($(date +%s) - N * 3600))
-# UNTIL=$(date +%s)
+# Use SQLite date expressions directly — never compute Unix epochs manually (wrong year risk).
+# "today"       → >= date('now','localtime')
+# "yesterday"   → >= date('now','-1 day','localtime') AND < date('now','localtime')
+# "last 48h"    → >= datetime('now','-48 hours')
+# "last 7 days" → >= date('now','-7 days','localtime')
+# Apply the range in the WHERE clause below using datetime() comparisons.
 ```
 
 ## Step 2: Pull all messages in the window
@@ -62,8 +56,8 @@ FROM messages m
 JOIN subjects  s  ON m.subject = s.ROWID
 JOIN addresses a  ON m.sender  = a.ROWID
 JOIN mailboxes mb ON m.mailbox = mb.ROWID
-WHERE m.date_received >= ${SINCE}
-  AND m.date_received <= ${UNTIL}
+WHERE datetime(m.date_received,'unixepoch','localtime') >= date('now','localtime')
+  -- adjust the expression above based on $ARGUMENTS
   AND m.deleted = 0
   AND mb.url NOT LIKE '%Spam%'
   AND mb.url NOT LIKE '%Trash%'
