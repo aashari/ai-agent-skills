@@ -22,6 +22,12 @@ The Data/ subfolder depth is unpredictable (Data/Messages/, Data/1/Messages/, Da
 find ~/Library/Mail/V10/ -name "<ROWID>.emlx" 2>/dev/null | head -1
 ```
 
+Two emlx variants exist:
+- `<ROWID>.emlx` — full message downloaded (headers + complete body)
+- `<ROWID>.partial.emlx` — IMAP lazy-load: headers + truncated body (Apple Mail downloaded the start but not everything). Body is usually readable; just may cut off near the end.
+
+The shared parser (`~/.claude/skills/_mail-shared/parser.py`) tries full emlx first, then falls back to partial automatically. Do not treat partial files as "not cached" — read them and extract what body is available.
+
 ## SQLite Database
 ```bash
 DB="$HOME/Library/Mail/V10/MailData/Envelope Index"
