@@ -137,7 +137,7 @@ Schedule for Monday March 3:
 
 Busy:
   09:00-10:00  Weekly Sync
-  14:00-15:00  1:1 with Zaky
+  14:00-15:00  1:1 with Alex
 
 Free slots:
   08:00-09:00  (1h)

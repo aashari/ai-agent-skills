@@ -83,10 +83,10 @@ Group events by date with a day header for each:
 Monday, March 3
   All-day: Public Holiday (Holidays)
   09:00–10:00  Weekly Sync         [Google Meet]  Work
-  14:00–15:00  1:1 with Zaky                      ashari.tech
+  14:00–15:00  1:1 with Alex                      Work
 
 Tuesday, March 4
-  10:00–11:00  Sprint Planning     [Zoom]         Coda
+  10:00–11:00  Sprint Planning     [Zoom]         Work
 ```
 
 Show weekday name + date in headers. Flag pending invites. Note video links.

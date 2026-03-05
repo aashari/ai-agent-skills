@@ -97,7 +97,7 @@ List each conflict pair:
 ```
 Monday March 3:
   [09:00–10:00] Weekly Sync (Work) overlaps
-  [09:30–10:30] Sprint Planning (Coda)
+  [09:30–10:30] Sprint Planning (Work)
 ```
 
 No conflicts: "No overlapping events in the next 7 days."

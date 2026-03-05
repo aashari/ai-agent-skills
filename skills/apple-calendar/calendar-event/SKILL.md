@@ -17,7 +17,7 @@ Fetch complete details for a specific event: attendees, description, video link,
 
 `$ARGUMENTS`:
 - Event ROWID: `"1234"`
-- Title search: `"weekly sync"`, `"standup"`, `"1:1 with Zaky"`
+- Title search: `"weekly sync"`, `"standup"`, `"1:1 with Alex"`
 
 ## Steps
 
